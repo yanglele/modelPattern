@@ -1,0 +1,37 @@
+package com.observer.implByPush;
+
+import com.observer.model.DisplayElement;
+import com.observer.model.Observer;
+
+/**
+ * Desc:
+ * Author:yl
+ * Email:yangle06@anjuke.com
+ * data:2018/3/10
+ * version:
+ * update:
+ */
+
+public class DisplayBoard2 implements Observer,DisplayElement {
+
+    private int temperature;
+    private int pressure;
+    private int humidity;
+
+    public DisplayBoard2(WeatherInfo weatherInfo){
+        weatherInfo.registerObserver(this);
+    }
+
+    @Override
+    public void update(int temperature, int pressure, int humidity) {
+        this.temperature = temperature;
+        this.pressure = pressure;
+        this.humidity = humidity;
+        display();
+    }
+
+    @Override
+    public void display() {
+        System.out.println("total num : "+(temperature+pressure+humidity));
+    }
+}
