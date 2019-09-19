@@ -52,3 +52,17 @@ class SingletonMode4{
         return GetSingletonInstance.INSTANCE;
     }
 }
+
+
+class Test{
+    public static void main(String[] args){
+        SingletonMode4.getInstance();
+        SingletonMode4.getInstance();
+    }
+}
+
+interface MyInterface{
+    enum PlatName{
+        WuBa,Anjuke
+    }
+}
